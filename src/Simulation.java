@@ -1,5 +1,6 @@
-import java.io.FileWriter;
-import java.io.IOException;
+import com.sun.org.apache.xpath.internal.SourceTree;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -34,10 +35,10 @@ public class Simulation {
             for (int i = 0; i < 6; i++) {
                 Random rnd = new Random();
                 Integer num = rnd.nextInt(45) + 1;
-                fileWriter.append(num.toString() + ", ");
+                fileWriter.append(num.toString() + ",");
             }
 
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.out.println("Error in CsvFileWriter !!!");
             e.printStackTrace();
         } finally {
@@ -51,6 +52,39 @@ public class Simulation {
             }
 
 
+        }
+    }
+
+    public void load() {
+        BufferedReader br = null;
+        String line;
+        String cvsSplitBy = ",";
+        try {
+            br = new BufferedReader(new FileReader("db.csv"));
+            while ((line = br.readLine()) != null) {
+
+                // use comma as separator
+                String[] numbers = line.split(cvsSplitBy);
+
+                for (String number : numbers) {
+                    System.out.println(number); //should not print, only for debug
+                }
+
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
         }
     }
 }
