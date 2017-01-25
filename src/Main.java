@@ -2,10 +2,11 @@
  * Created by bodor on 2017.01.25..
  */
 public class Main {
-    //Simulation simulation = new Simulation();
-    //generateSimulation(hányszor);
-    //
-    //
+
+    public static void main(String[] args){
+        //Simulation simulation = new Simulation();
+        //generateSimulation(hányszor);
+    }
 
 }
 
