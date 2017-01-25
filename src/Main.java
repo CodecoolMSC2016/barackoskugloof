@@ -6,8 +6,8 @@
 public class Main {
 
     public static void main(String[] args){
-        //Simulation simulation = new Simulation();
-        //simulation.generateSimulation(args[0]);
+        Simulation simulation = new Simulation();
+        simulation.generateSimulation(10); //args[0]
     }
 
 }
