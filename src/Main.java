@@ -1,18 +1,20 @@
 /**
- * Main: Starts the application. Able to configure the round of the
- * simulations by taking it from the command line argument.
- *
+ * Created by bodor on 2017.01.25..
  */
 public class Main {
-
-
-    public static Simulation generateSimulation(int round){
-        //generateSimulation(int round), returns a
-        //Simulation instance that contains the simulation result
-        return Simulation;
-    }
-    public static void main(String[] args){
-
-
-    }
 }
+
+
+
+    /*public static void main(String[] args) {
+        int[][] sajt = generateSimulation(100);
+        String nline = "";
+        for (int[] a : sajt) {
+            for (int b : a) {
+                nline += b + ",";
+            }
+            System.out.println(nline.substring(0,nline.length() - 1));
+            nline = "";
+        }
+
+    }*/
