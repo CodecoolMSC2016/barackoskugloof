@@ -1,5 +1,7 @@
 /**
- * Created by bodor on 2017.01.25..
+ * Main: Starts the application. Able to configure the round of the
+ * simulations by taking it from the command line argument.
+ *
  */
 public class Main {
 
