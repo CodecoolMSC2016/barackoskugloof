@@ -1,3 +1,5 @@
+
+
 /**
  * Created by bodor on 2017.01.25..
  */
@@ -5,7 +7,7 @@ public class Main {
 
     public static void main(String[] args){
         //Simulation simulation = new Simulation();
-        //generateSimulation(hányszor);
+        //simulation.generateSimulation(args[0]);
     }
 
 }
