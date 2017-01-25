@@ -20,7 +20,7 @@ public class Simulation {
     }
 
     public void generateSimulation(int times) {
-        for (int i = 0; i < times; i++) {
+        for (int i = 0; i < times -1; i++) {
             generateData();
 
         }
