@@ -13,7 +13,7 @@ public class Simulator {
         this.logger = logger;
     }
 
-    public void run() {
+    public Result run() {
         Result result = new Result();
         ArrayList<int[]> possibleResultArray;
         HashMap<Integer, Integer> hm = new HashMap<>();
@@ -38,6 +38,7 @@ public class Simulator {
             }
 
             result.setResult(finalResultNums);
-            }
+        return result;
+    }
 
         }
