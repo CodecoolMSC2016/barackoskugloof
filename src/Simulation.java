@@ -17,7 +17,7 @@ public class Simulation {
 
     public static Simulation generateSimulation(int times) {
         Simulation simulation = new Simulation();
-        for (int i = 0; i < times -1; i++) simulation.generateData();
+        for (int i = 0; i < times; i++) simulation.generateData();
         simulation.simData = load();
         return simulation;
     }
@@ -25,12 +25,19 @@ public class Simulation {
     public void generateData() {
         FileWriter fileWriter = null;
         try { fileWriter = new FileWriter("db.csv", true);
+            fileWriter.append(Logger.getDateTime() + " - @");
+            ArrayList<Integer> drawnNums = new ArrayList<>();
             for (int i = 0; i < 6; i++) {
                 Random rnd = new Random();
                 Integer num = rnd.nextInt(45) + 1;
+                if(drawnNums.contains(num)){
+                    i--;
+                    continue;
+                }
+                drawnNums.add(num);
                 fileWriter.append(num.toString() + ",");
             }
-            fileWriter.append("  " + Logger.getDateTime() + "\n");
+            fileWriter.append("\n");
         } catch (IOException e) {
             System.out.println("Error in CsvFileWriter !!!");
             e.printStackTrace();
@@ -53,10 +60,10 @@ public class Simulation {
         try {
             br = new BufferedReader(new FileReader("db.csv"));
             while ((line = br.readLine()) != null) {
-                System.out.println(line);
+                Logger.log(line, "");
                 int[] row = new int[6];
-                // use comma as separator
-                String[] numbers = line.split(cvsSplitBy);
+                String[] split = line.split("@");
+                String[] numbers = split[1].split(cvsSplitBy);
                 for (int i = 0; i <6; i++) {
                   row[i] = Integer.parseInt(numbers[i]);
                 }result.add(row);
