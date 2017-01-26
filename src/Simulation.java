@@ -1,8 +1,5 @@
-import com.sun.org.apache.xpath.internal.SourceTree;
-
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Simulation: Contains the simulation data.
@@ -30,15 +27,13 @@ public class Simulation {
         FileWriter fileWriter = null;
 
         try {
-            fileWriter = new FileWriter("db.csv", true);
+            fileWriter = new FileWriter("db.csv");
 
             for (int i = 0; i < 6; i++) {
                 Random rnd = new Random();
                 Integer num = rnd.nextInt(45) + 1;
                 fileWriter.append(num.toString() + ",");
             }
-            fileWriter.append("  " + Logger.getDateTime() + "\n");
-
 
         } catch (IOException e) {
             System.out.println("Error in CsvFileWriter !!!");
@@ -52,23 +47,30 @@ public class Simulation {
                 System.out.println("Error while flushing/closing fileWriter !!!");
                 e.printStackTrace();
             }
+
+
         }
     }
 
-    public void load() {
+    public static ArrayList<int[] load() {
         BufferedReader br = null;
         String line;
         String cvsSplitBy = ",";
+        ArrayList<int[]> result = new ArrayList<>();
         try {
             br = new BufferedReader(new FileReader("db.csv"));
             while ((line = br.readLine()) != null) {
+              int[] row = new int[6];
+
 
                 // use comma as separator
                 String[] numbers = line.split(cvsSplitBy);
 
-                for (String number : numbers) {
-                    System.out.println(number); //should not print, only for debug
+                for (int i = 0; i <6; i++) {
+                  row[i] = Integer.parseInt(numbers[i]);
+
                 }
+                result.add(row);
 
             }
 
@@ -86,5 +88,6 @@ public class Simulation {
 
             }
         }
+        return result;
     }
 }
