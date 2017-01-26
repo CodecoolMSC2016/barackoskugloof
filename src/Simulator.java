@@ -15,29 +15,35 @@ public class Simulator {
 
     public Result run() {
         Result result = new Result();
+        ArrayList<Integer> finalResultNums = new ArrayList<>();
         ArrayList<int[]> possibleResultArray;
         HashMap<Integer, Integer> hm = new HashMap<>();
-        possibleResultArray = simulation.simData; //puts all generated numbers into array
+        possibleResultArray = simulation.simData;
+
+        //puts all generated numbers into array
         for (int[] possibleResultList : possibleResultArray) {
             for (Integer possibleResult:
                  possibleResultList) {
                 if (hm.containsKey(possibleResult)) {
-                    hm.put(possibleResult, hm.get(possibleResult) + 1);
+                    hm.replace(possibleResult, hm.get(possibleResult)+1);
                 } else {
                     hm.put(possibleResult, 1);
                 }
             }
         }
-        Map<Integer,Integer> finalResult = hm.entrySet().stream().sorted(Map.Entry
-                    .comparingByKey(Comparator.reverseOrder())).limit(6)
-                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-        ArrayList<Integer> finalResultNums = new ArrayList<>();
-        for (Map.Entry<Integer, Integer> entry:finalResult.entrySet()){
-                Integer value = entry.getValue();
-                finalResultNums.add(value);
+        for (int i = 0; i < 6; i++) {
+        Map.Entry<Integer,Integer> maxEntry = null;
+        for (Map.Entry<Integer,Integer> entry: hm.entrySet()){
+            if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0)
+            {
+                maxEntry = entry;
             }
+        }
+        finalResultNums.add(maxEntry.getKey());
+        hm.remove(maxEntry.getKey());
 
-            result.setResult(finalResultNums);
+        }
+        result.setResult(finalResultNums);
         return result;
     }
 
