@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.*;
+import java.util.stream.Collectors;
 /**
  * Simulator: It is responsible for running the Simulation of the game.
  */

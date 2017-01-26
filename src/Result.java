@@ -9,6 +9,8 @@ public class Result {
         return resultData;
     }
 
+
+
     public void setResult(ArrayList<Integer> simData) {
 
         resultData = simData;

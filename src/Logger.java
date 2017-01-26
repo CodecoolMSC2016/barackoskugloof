@@ -1,3 +1,6 @@
+import java.util.*;
+import java.text.*;
+import java.time.*;
 public class Logger {
 
     String type;
@@ -25,8 +28,7 @@ public class Logger {
     public static String getDateTime() {
         DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss YYYY.MM.dd");
         Date date = new Date();
-        String dateTimeFormatted = "[" + dateFormat.format(date) + "]";
 
-        return dateTimeFormatted;
+        return "[" + dateFormat.format(date) + "]";
     }
 }
