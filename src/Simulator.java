@@ -15,14 +15,17 @@ public class Simulator {
 
     public void run() {
         Result result = new Result();
-        ArrayList<Integer> possibleResultArray;
+        ArrayList<int[]> possibleResultArray;
         HashMap<Integer, Integer> hm = new HashMap<>();
         possibleResultArray = simulation.simData; //puts all generated numbers into array
-        for (Integer possibleResult : possibleResultArray) {
-            if (hm.containsKey(possibleResult)) {
-                hm.put(possibleResult, hm.get(possibleResult) + 1);
-            } else {
-                hm.put(possibleResult, 1);
+        for (int[] possibleResultList : possibleResultArray) {
+            for (Integer possibleResult:
+                 possibleResultList) {
+                if (hm.containsKey(possibleResult)) {
+                    hm.put(possibleResult, hm.get(possibleResult) + 1);
+                } else {
+                    hm.put(possibleResult, 1);
+                }
             }
         }
         Map<Integer,Integer> finalResult = hm.entrySet().stream().sorted(Map.Entry
