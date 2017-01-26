@@ -1,6 +1,3 @@
-import java.util.*;
-import java.util.stream.Collectors;
-
 /**
  * Simulator: It is responsible for running the Simulation of the game.
  */
@@ -22,29 +19,28 @@ public class Simulator {
 
         //puts all generated numbers into array
         for (int[] possibleResultList : possibleResultArray) {
-            for (Integer possibleResult:
-                 possibleResultList) {
+            for (Integer possibleResult :
+                    possibleResultList) {
                 if (hm.containsKey(possibleResult)) {
-                    hm.replace(possibleResult, hm.get(possibleResult)+1);
+                    hm.replace(possibleResult, hm.get(possibleResult) + 1);
                 } else {
                     hm.put(possibleResult, 1);
                 }
             }
         }
         for (int i = 0; i < 6; i++) {
-        Map.Entry<Integer,Integer> maxEntry = null;
-        for (Map.Entry<Integer,Integer> entry: hm.entrySet()){
-            if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0)
-            {
-                maxEntry = entry;
+            Map.Entry<Integer, Integer> maxEntry = null;
+            for (Map.Entry<Integer, Integer> entry : hm.entrySet()) {
+                if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0) {
+                    maxEntry = entry;
+                }
             }
-        }
-        finalResultNums.add(maxEntry.getKey());
-        hm.remove(maxEntry.getKey());
+            finalResultNums.add(maxEntry.getKey());
+            hm.remove(maxEntry.getKey());
 
         }
         result.setResult(finalResultNums);
         return result;
     }
 
-        }
+}
