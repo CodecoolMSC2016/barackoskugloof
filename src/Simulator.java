@@ -1,13 +1,40 @@
+import java.util.*;
+import java.util.stream.Collectors;
+
 /**
  * Simulator: It is responsible for running the Simulation of the game.
  */
 public class Simulator {
-   public Simulator(Simulation simulation, Logger logger){
+    Simulation simulation;
+    Logger logger;
 
+    public Simulator(Simulation simulation, Logger logger) {
+        this.simulation = simulation;
+        this.logger = logger;
     }
-   public void run(){
-//        it returns a Result instance to inform us about
-//        the end of the playing and it stores the evaluated result.
-       Result result = new Result();
-    }
-}
+
+    public void run() {
+        Result result = new Result();
+        ArrayList<Integer> possibleResultArray;
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        possibleResultArray = simulation.simData; //puts all generated numbers into array
+        for (Integer possibleResult : possibleResultArray) {
+            if (hm.containsKey(possibleResult)) {
+                hm.put(possibleResult, hm.get(possibleResult) + 1);
+            } else {
+                hm.put(possibleResult, 1);
+            }
+        }
+        Map<Integer,Integer> finalResult = hm.entrySet().stream().sorted(Map.Entry
+                    .comparingByKey(Comparator.reverseOrder())).limit(6)
+                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        ArrayList<Integer> finalResultNums = new ArrayList<>();
+        for (Map.Entry<Integer, Integer> entry:finalResult.entrySet()){
+                Integer value = entry.getValue();
+                finalResultNums.add(value);
+            }
+
+            result.setResult(finalResultNums);
+            }
+
+        }

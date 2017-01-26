@@ -30,13 +30,15 @@ public class Simulation {
         FileWriter fileWriter = null;
 
         try {
-            fileWriter = new FileWriter("db.csv");
+            fileWriter = new FileWriter("db.csv",true);
 
             for (int i = 0; i < 6; i++) {
                 Random rnd = new Random();
                 Integer num = rnd.nextInt(45) + 1;
                 fileWriter.append(num.toString() + ",");
             }
+            fileWriter.append("\n");
+
 
         } catch (IOException e) {
             System.out.println("Error in CsvFileWriter !!!");

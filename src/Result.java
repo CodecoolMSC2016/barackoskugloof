@@ -6,7 +6,7 @@ public class Result {
         ArrayList<Integer> resultData = new ArrayList<>();
     public void setResult(ArrayList<Integer> simData){
 
-        resultData.addAll(simData);
+        resultData = simData;
     }
     public ArrayList<Integer> getResult(){
         return resultData;
