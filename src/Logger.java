@@ -18,14 +18,10 @@ public class Logger
 
   public static void log(String type, String text)
   {
-      DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-      Date date = new Date();
       System.out.println(type + "  " + text);
   }
   public static void log(String type, String text, String ts)
   {
-    DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss YYYY.MM.dd");
-    Date date = new Date();
     System.out.println(getDateTime() + type + " - " + text);
   }
 

@@ -39,20 +39,19 @@ public class Simulation {
             }
             fileWriter.append("\n");
         } catch (IOException e) {
-            System.out.println("Error in CsvFileWriter !!!");
-            e.printStackTrace();
+            Logger.log("Error", e.toString(), "ts");
         } finally {
             try {
                 fileWriter.flush();
                 fileWriter.close();
             } catch (IOException e) {
-                System.out.println("Error while flushing/closing fileWriter !!!");
-                e.printStackTrace();
+                Logger.log("Error", e.toString(), "ts");
             }
         }
     }
 
     public static ArrayList<int[]> load() {
+        Logger.log("I/O handling", "Reading stats from file.", "ts");
         BufferedReader br = null;
         String line;
         String cvsSplitBy = ",";
@@ -60,10 +59,10 @@ public class Simulation {
         try {
             br = new BufferedReader(new FileReader("db.csv"));
             while ((line = br.readLine()) != null) {
-                Logger.log(line, "");
                 int[] row = new int[6];
                 String[] split = line.split("@");
                 String[] numbers = split[1].split(cvsSplitBy);
+                Logger.log("Generated number", split[1], "ts");
                 for (int i = 0; i <6; i++) {
                   row[i] = Integer.parseInt(numbers[i]);
                 }result.add(row);
