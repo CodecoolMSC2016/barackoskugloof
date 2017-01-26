@@ -25,7 +25,7 @@ public class Logger
       System.out.println("[" + dateFormat.format(date) + "] " + type + " - " + text);
   }
 
-  public static String dateTime()
+  public static String getDateTime()
   {
     DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
     Date date = new Date();
