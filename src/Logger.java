@@ -14,6 +14,7 @@ public class Logger
     text = inText;
     timeStamp = getDateTime();
   }
+  public Logger(){}
 
   public static void main(String[] args)
   {
@@ -24,8 +25,15 @@ public class Logger
   {
       DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
       Date date = new Date();
-      System.out.println("[" + dateFormat.format(date) + "] " + type + " - " + text);
+      System.out.println(type + " - " + text);
   }
+  public static void log(String type, String text, String ts)
+  {
+    DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+    Date date = new Date();
+    System.out.println("[" + dateFormat.format(date) + "] " + type + " - " + text);
+  }
+
 
   public static String getDateTime()
   {

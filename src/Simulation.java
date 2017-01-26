@@ -53,7 +53,8 @@ public class Simulation {
         try {
             br = new BufferedReader(new FileReader("db.csv"));
             while ((line = br.readLine()) != null) {
-              int[] row = new int[6];
+                System.out.println(line);
+                int[] row = new int[6];
                 // use comma as separator
                 String[] numbers = line.split(cvsSplitBy);
                 for (int i = 0; i <6; i++) {
