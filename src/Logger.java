@@ -6,11 +6,13 @@ public class Logger
 
   String type;
   String text;
+  String timeStamp;
 
   public Logger(String inType, String inText)
   {
     type = inType;
     text = inText;
+    timeStamp = getDateTime();
   }
 
   public static void main(String[] args)
@@ -27,7 +29,7 @@ public class Logger
 
   public static String getDateTime()
   {
-    DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+    DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss YYYY:MM:dd");
     Date date = new Date();
 
     return dateFormat.format(date);

@@ -1,29 +1,8 @@
-
-
-/**
- * Created by bodor on 2017.01.25..
- */
 public class Main {
 
     public static void main(String[] args){
-        Simulation simulation = new Simulation();
-        simulation.load();
-        simulation.generateSimulation(10); //args[0]
+        //nem simulation simulation = new Simulation();
+        Simulation simulation = Simulation.generateSimulation(10); //args[0]
+        //Simulator simulator = new Simulator(simulation, )
     }
-
 }
-
-
-
-    /*public static void main(String[] args) {
-        int[][] sajt = generateSimulation(100);
-        String nline = "";
-        for (int[] a : sajt) {
-            for (int b : a) {
-                nline += b + ",";
-            }
-            System.out.println(nline.substring(0,nline.length() - 1));
-            nline = "";
-        }
-
-    }*/
