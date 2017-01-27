@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 /**
  * Simulator: It is responsible for running the Simulation of the game.
@@ -14,6 +15,14 @@ public class Simulator {
     }
 
     public Result run() {
+        Logger.log("Result", "Calculating the result. Please wait exactly 2 seconds.", "ts");
+        try {
+            TimeUnit.SECONDS.sleep(2);
+
+        } catch (InterruptedException e) {
+            logger.log("Error", e.toString(), "ts");
+        }
+
         Result result = new Result();
         ArrayList<Integer> finalResultNums = new ArrayList<>();
         ArrayList<int[]> possibleResultArray;
@@ -43,6 +52,7 @@ public class Simulator {
 
         }
         result.setResult(finalResultNums);
+        Logger.log("Result", "Results calculated successfully.", "ts");
         return result;
     }
 

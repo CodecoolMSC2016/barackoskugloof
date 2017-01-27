@@ -29,6 +29,6 @@ public class Logger {
         DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss YYYY.MM.dd");
         Date date = new Date();
 
-        return "[" + dateFormat.format(date) + "]";
+        return "[" + dateFormat.format(date) + "] ";
     }
 }
