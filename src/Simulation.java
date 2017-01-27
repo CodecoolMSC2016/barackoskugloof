@@ -54,7 +54,7 @@ public class Simulation {
                 }
             }
         }
-        Logger.log("I/O handling", "Database reading  is done.", "ts"); //TODO: Lovi??
+        Logger.log("I/O handling", "Database reading  is done.", "ts");
         return result;
     }
 
